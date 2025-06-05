@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const AlumnoList = () => {
+const AlumnoList = () => {
   return (
     <div>AlumnoList</div>
   )
 }
+
+export default AlumnoList;
