@@ -1,10 +1,10 @@
 import { Routes,Route } from "react-router-dom"
-import Home from './pages/Home';
-import ListaAlumnos from './pages/ListaAlumnos';
-import NuevoAlumno from './pages/NuevoAlumno';
-import EditarAlumno from './pages/EditarAlumno';
-import DetalleAlumno from './pages/DetalleAlumno';
-import AcercaDe from './pages/AcercaDe';
+import Home from '../pages/Home';
+import ListaAlumnos from '../pages/ListaAlumnos';
+import NuevoAlumno from '../pages/NuevoAlumno';
+import EditarAlumno from '../pages/EditarAlumno';
+import DetalleAlumno from '../pages/DetalleAlumno';
+import AcercaDe from '../pages/AcercaDe';
 
 export const AppRouter = () => {
   return (
