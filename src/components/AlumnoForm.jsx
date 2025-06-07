@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { TextField, Button, Box } from '@mui/material';
 
 export default function AlumnoForm({ alumnoInicial, onSubmit }) {
   const [form, setForm] = useState({
@@ -27,21 +28,25 @@ export default function AlumnoForm({ alumnoInicial, onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{ mt: 3, display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 400 }}
+    >
       {Object.entries(form).map(([key, value]) => (
-        <div key={key}>
-          <label>{key.toUpperCase()}</label>
-          <input
-            type={key === 'email' ? 'email' : 'text'}
-            name={key}
-            value={value}
-            onChange={handleChange}
-            required
-            disabled={key === 'lu' && alumnoInicial}
-          />
-        </div>
+        <TextField
+          key={key}
+          label={key.toUpperCase()}
+          name={key}
+          value={value}
+          onChange={handleChange}
+          required
+          disabled={key === 'lu' && alumnoInicial}
+          type={key === 'email' ? 'email' : 'text'}
+          fullWidth
+        />
       ))}
-      <button type="submit">Guardar</button>
-    </form>
+      <Button type="submit" variant="contained">Guardar</Button>
+    </Box>
   );
 }
