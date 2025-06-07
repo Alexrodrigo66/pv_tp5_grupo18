@@ -1,21 +1,30 @@
 import React from 'react';
+import { TableRow, TableCell, Button, Stack } from '@mui/material';
 
 const AlumnoItem = ({ alumno, onEdit, onDelete, onDetail }) => {
   return (
-    <tr className="alumno-item">
-      <td>{alumno.lu}</td>
-      <td>{alumno.nombre}</td>
-      <td>{alumno.apellido}</td>
-      <td>{alumno.curso}</td>
-      <td>{alumno.email}</td>
-      <td>{alumno.domicilio}</td>
-      <td>{alumno.telefono}</td>
-      <td>
-        <button onClick={() => onDetail(alumno)}>Ver Detalle</button>{' '}
-        <button onClick={() => onEdit(alumno)}>Editar</button>{' '}
-        <button onClick={() => onDelete(alumno.lu)}>Eliminar</button>
-      </td>
-    </tr>
+    <TableRow>
+      <TableCell>{alumno.lu}</TableCell>
+      <TableCell>{alumno.nombre}</TableCell>
+      <TableCell>{alumno.apellido}</TableCell>
+      <TableCell>{alumno.curso}</TableCell>
+      <TableCell>{alumno.email}</TableCell>
+      <TableCell>{alumno.domicilio}</TableCell>
+      <TableCell>{alumno.telefono}</TableCell>
+      <TableCell>
+        <Stack direction="row" spacing={1}>
+          <Button variant="outlined" size="small" onClick={() => onDetail(alumno)}>
+            Ver Detalle
+          </Button>
+          <Button variant="contained" size="small" onClick={() => onEdit(alumno)}>
+            Editar
+          </Button>
+          <Button variant="outlined" color="error" size="small" onClick={() => onDelete(alumno.lu)}>
+            Eliminar
+          </Button>
+        </Stack>
+      </TableCell>
+    </TableRow>
   );
 };
 

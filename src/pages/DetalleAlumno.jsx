@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { Paper, Typography, Box, Button } from '@mui/material';
 
 export default function DetalleAlumno({ alumnos }) {
   const { id } = useParams();
@@ -11,15 +12,16 @@ export default function DetalleAlumno({ alumnos }) {
   }
 
   return (
-    <div>
-      <h2>Detalle del Alumno</h2>
-      <p><strong>LU:</strong> {alumno.lu}</p>
-      <p><strong>Nombre:</strong> {alumno.nombre}</p>
-      <p><strong>Apellido:</strong> {alumno.apellido}</p>
-      <p><strong>Curso:</strong> {alumno.curso}</p>
-      <p><strong>Email:</strong> {alumno.email}</p>
-      <p><strong>Domicilio:</strong> {alumno.domicilio}</p>
-      <p><strong>Teléfono:</strong> {alumno.telefono}</p>
-    </div>
+    <Paper sx={{ p: 3, maxWidth: 600, mx: 'auto' }}>
+      <Typography variant="h5" gutterBottom>Detalle del Alumno</Typography>
+      {Object.entries(alumno).map(([key, value]) => (
+        <Typography key={key} variant="body1"><strong>{key.toUpperCase()}:</strong> {value}</Typography>
+      ))}
+      <Box mt={2}>
+        <Button variant="contained" onClick={() => navigate('/alumnos')}>
+          Volver a la lista
+        </Button>
+      </Box>
+    </Paper>
   );
 }
